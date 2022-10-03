@@ -1,20 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Routerr from './src/navigations/Routerr'
+ 
+import { withAuthenticator } from 'aws-amplify-react-native';
+import { Amplify } from 'aws-amplify';
+import awsExports from './aws-exports';
 
-export default function App() {
+Amplify.configure(awsExports);
+
+ 
+
+
+ 
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Routerr/>
+  )
 }
 
+export default withAuthenticator(App);
+
+
+
+ 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+ 
 });
